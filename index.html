@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Bad Apple js</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container-fluid row pt-5">
+		<div class="col-2">
+			<canvas id="video" width="150px" height="112px" style="border: solid 1px"></canvas>
+			<button type="button" class="btn btn-dark" id="btn" onclick="btn_active()">Play</button>
+			<video id="videoBase" style="visibility: hidden">
+				<source src="Badapplesmall.mp4" type="video/mp4"/>
+			</video>
+		</div>
+		<div class="col-10" style="border: solid 1px black; line-height: 15px;" id="mainPlayer">
+		
+		</div>
+	</div>
+	
+
+
+
+	<script src="main.js"></script>
+</body>
+</html>

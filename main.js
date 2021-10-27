@@ -6,31 +6,37 @@ var btn = document.getElementById("btn");
 var pause = false, played=false; //verificações para os botões
 
 //cria as checkboxs
+let  checkboxs = ''
 for( i=0; i<56; i++){
+	checkboxs +="<div class='row'>"
 	for(i2=0; i2<75; i2++){
-		main.innerHTML+='<input type="checkbox" id="'+i+'-'+i2+'"/>';
+		checkboxs+='<input type="checkbox" id="'+i+'-'+i2+'"/>'
 	}
-	main.innerHTML+='<br>';
+	checkboxs+="</div>"
 }
+
+main.innerHTML=checkboxs;
 
 
 function desenhar(){
 	ctx.drawImage(video, 0, 0, canv.width, canv.height);//Desenha o frame do video no canvas
 	var x=0, y=0;
+	checkboxs = '';
 		for(i=0; i<56; i++){
 			for(i2=0; i2<75; i2++){
+				checkboxs +="<div class='row'>"
 				image = ctx.getImageData(x,y,1,1);//pega o valor do frame(a cada 2 frames)
 				x+=2;
-				if(image.data[0]<=80 && image.data[1]<=80 && image.data[2]<=80){//verifica se é proximo a preto e se for marca a checkbox respectiva
-					document.getElementById(i+'-'+i2).checked = true;
+				if(image.data[0]<=80 && image.data[1]<=80 && image.data[2]<=80){
+					checkboxs+='<input type="checkbox" id="'+i+'-'+i2+'" checked />'
 				}else{
-
-					document.getElementById(i+'-'+i2).checked = false;
+					checkboxs+='<input type="checkbox" id="'+i+'-'+i2+'"/>'
 				}
 			}
 			x=0;
 			y+=2;
 		}
+	main.innerHTML=checkboxs;
 	if(pause==false){
 	setTimeout(desenhar, 1000 / 30);//define a taxa que vai atualizar, muito embora eu não tenha conseguido executar nesse time
 	}

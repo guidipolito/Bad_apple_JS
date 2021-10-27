@@ -32,6 +32,7 @@ function desenhar(){
 				}else{
 					checkboxs+='<input type="checkbox" id="'+i+'-'+i2+'"/>'
 				}
+				checkboxs += "</div>"
 			}
 			x=0;
 			y+=2;
